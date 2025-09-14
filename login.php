@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                         'UserID' => $row['UserID'],
                         'Name' => $row['Name']
                     ];
-                    header("Location: index.php");
+                    header("Location: ./index.php");
                     exit;
                 } else {
                 echo "Incorrect Password.";
