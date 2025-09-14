@@ -21,18 +21,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 $row = $result->fetch_assoc();
                 $isPasswordCorrect = password_verify($userPassword, $row['Password']);
                 if ($isPasswordCorrect) {
-                
+                    echo "Correct Password!";
                     $_SESSION['auth_user'] = [
                         'UserID' => $row['UserID'],
                         'Name' => $row['Name']
                     ];
-                    header("Location: .");
-                    die;
+                    header("Location: index.php");
+                    exit;
                 } else {
-                echo "Error";
+                echo "Incorrect Password.";
             }
         } else {
-            "Error";
+            echo "Email not found.";
+            
         }
     }
 
